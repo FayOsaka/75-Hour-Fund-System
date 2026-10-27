@@ -1,71 +1,67 @@
-<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="DB_75-Hour.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="0"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="708"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><table title="sqlite_sequence" custom_title="0" dock_id="1" table="4,15:mainsqlite_sequence"/><dock_state state="000000ff00000000fd00000001000000020000045c000002b6fc0100000001fb000000160064006f0063006b00420072006f007700730065003101000000000000045c0000011800ffffff000002580000000000000004000000040000000800000008fc00000000"/><default_encoding codec=""/><browse_table_settings><table schema="main" name="sqlite_sequence" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="39"/><column index="2" value="29"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table></browse_table_settings></tab_browse><tab_sql><sql name="SQL 1*">
--- 1. ตาราง user: ข้อมูลนักศึกษา
-CREATE TABLE &quot;user&quot; (
-    user_id INTEGER PRIMARY KEY AUTOINCREMENT,
-    user_sduID TEXT UNIQUE NOT NULL
-        CHECK (LENGTH(user_sduID) = 14),
-    user_firstname TEXT NOT NULL
-        CHECK (LENGTH(user_firstname) &lt;= 100),
-    user_lastname TEXT NOT NULL
-        CHECK (LENGTH(user_lastname) &lt;= 100),
-    user_phone TEXT NOT NULL
-        CHECK (LENGTH(user_phone) = 10),
-    user_faculty TEXT NOT NULL
-        CHECK (LENGTH(user_faculty) &lt;= 150),
-    user_major TEXT NOT NULL
-        CHECK (LENGTH(user_major) &lt;= 150),
-    user_password TEXT NOT NULL
-        CHECK (LENGTH(user_password) &lt;= 255)
-);
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="DB_75-Hour.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="1"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="3385"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><table title="user" custom_title="0" dock_id="1" table="4,4:mainuser"/><dock_state state="000000ff00000000fd00000001000000020000043c000002b6fc0100000001fb000000160064006f0063006b00420072006f007700730065003101000000000000043c0000011e00ffffff000002580000000000000004000000040000000800000008fc00000000"/><default_encoding codec=""/><browse_table_settings><table schema="main" name="admin" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="60"/><column index="2" value="103"/><column index="3" value="101"/><column index="4" value="103"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="mapping_project_user" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="74"/><column index="2" value="52"/><column index="3" value="67"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="user" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="50"/><column index="2" value="117"/><column index="3" value="93"/><column index="4" value="90"/><column index="5" value="85"/><column index="6" value="112"/><column index="7" value="164"/><column index="8" value="140"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table></browse_table_settings></tab_browse><tab_sql><sql name="SQL 1*">-- 1. Insert Admin (3 คน)
+INSERT INTO `admin` (`admin_firstname`, `admin_lastname`, `admin_password`) VALUES
+('สมศักดิ์' , 'ผู้ดูแลระบบ', 'password123'),
+('Sujit', 'AdminStaff', 'password123'),
+('ดร.วิชัย'  , 'บริหารระบบ'   , 'password123');
 
--- 2. ตาราง admin: ข้อมูลผู้ดูแลระบบ
-CREATE TABLE admin (
-    admin_id INTEGER PRIMARY KEY AUTOINCREMENT,
-    admin_firstname TEXT NOT NULL
-        CHECK (LENGTH(admin_firstname) &lt;= 100),
-    admin_lastname TEXT NOT NULL
-        CHECK (LENGTH(admin_lastname) &lt;= 100),
-    admin_password TEXT NOT NULL
-        CHECK (LENGTH(admin_password) &lt;= 255)
-);
+-- 2. Insert Projects (5 โครงการ)
+INSERT INTO `project` (`project_name`) VALUES
+('โครงการผู้ช่วยงานวิจัยประจำคณะวิทยาศาสตร์ฯ'          ),
+('โครงการพัฒนาเว็บไซต์มหาวิทยาลัยสวนดุสิต'          ),
+('โครงการจัดเตรียมสื่อการเรียนรู้ดิจิทัล'        ),
+('โครงการอาสาสมัครห้องสมุดและหอสมุดกลาง'          ),
+('โครงการสนับสนุนงานธุรการและกิจการนักศึกษา'          );
 
--- 3. ตาราง project: ข้อมูลโครงการ
-CREATE TABLE project (
-    project_id INTEGER PRIMARY KEY AUTOINCREMENT,
-    project_name TEXT NOT NULL
-        CHECK (LENGTH(project_name) &lt;= 255)
-);
+-- 3. Insert Users (20 คน - รหัสนักศึกษา 14 หลัก, เบอร์โทร 10 หลัก)
+INSERT INTO `user` (`user_sduID`, `user_firstname`, `user_lastname`, `user_phone`, `user_faculty`, `user_major`, `user_password`) VALUES
+('66110113400001', 'กิตติศักดิ์  ', 'วงษ์สว่าง'  , '0812345678', 'วิทยาศาสตร์และเทคโนโลยี'      ,'วิทยาการคอมพิวเตอร์'     , 'password123'),
+('66110113400002', 'ณัฐชา'  , 'สุขเจริญ'  , '0823456789', 'วิทยาศาสตร์และเทคโนโลยี'      , 'เทคโนโลยีสารสนเทศ'     , 'password123'),
+('66110113400003', 'ธนดล'  , 'แซ่ตั้ง'  , '0834567890', 'มนุษยศาสตร์และสังคมศาสตร์'       , 'ภาษาอังกฤษเพื่อการสื่อสาร'       , 'password123'),
+('66110113400004', 'พิมพ์ชนก'  , 'ใจดี' , '0845678901', 'ครุศาสตร์'  , 'การประถมศึกษา'    , 'password123'),
+('66110113400005', 'ศุภกร' , 'ศรีทอง'  , '0856789012', 'เทคโนโลยีการเกษตร'     , 'เทคโนโลยีการประกอบอาหารและการบริการ'          , '      password123'),
+('66110113400006', 'กชพร' , 'วงศ์ษา'  , '0867890123', 'วิทยาศาสตร์และเทคโนโลยี'       , 'วิทยาการคอมพิวเตอร์     ', 'password123'),
+('66110113400007', 'จิรายุ' , 'บุญญานุสาสน์'    , '0878901234', 'วิทยาการจัดการ'    , 'การจัดการธุรกิจดิจิทัล'     , 'password123'),
+('66110113400008', 'ชญานิน'  , 'เรืองเดช'   , '0889012345', 'วิทยาการจัดการ', 'การบัญชี'   , 'password123'),
+('66110113400009', 'ณฐกร'  , 'คงคา'  , '0890123456', 'พยาบาลศาสตร์'    , 'พยาบาลศาสตรบัณฑิต'     ,   'password123'),
+('66110113400010', 'ดนัย'  , 'แซ่ลิ้ม'  , '0811122334', 'วิทยาศาสตร์และเทคโนโลยี'       , 'เทคโนโลยีสารสนเทศ'     , 'password123'),
+('66110113400011', 'ทิชา' , 'งามพริ้ง'  , '0822233445', 'มนุษยศาสตร์และสังคมศาสตร์'       , 'จิตวิทยาอุตสาหกรรมและองค์การ'        , 'password123'),
+('66110113400012', 'ธนวัฒน์  ', 'โชคดี'  , '0833344556', 'ครุศาสตร์'  , 'การศึกษาปฐมวัย'    , 'password123'),
+('66110113400013', 'นภัสสร' , 'พรมมา'  , '0844455667', 'วิทยาการจัดการ'    , 'การตลาดดิจิทัล'    , 'password123'),
+('66110113400014', 'บวร' , 'วิเศษสิงห์'   , '0855566778', 'วิทยาศาสตร์และเทคโนโลยี'       , 'วิทยาการคอมพิวเตอร์'     , 'password123'),
+('66110113400015', 'ปวีณา' , 'รุ่งเรือง'  , '0866677889', 'พยาบาลศาสตร์'    , 'พยาบาลศาสตรบัณฑิต'      , 'password123'),
+('66110113400016', 'พงศกร' , 'มีสุข'  , '0877788990', 'วิทยาการจัดการ'    , 'การจัดการธุรกิจดิจิทัล'     , 'password123'),
+('66110113400017', 'ภัทรพล'  , 'นิลรัตน์'  , '0888899001', 'เทคโนโลยีการเกษตร'     , 'เทคโนโลยีการประกอบอาหารและการบริการ'          , 'password123'),
+('66110113400018', 'รวินันท์' , 'จันทร์ศรี'  , '0899900112', 'มนุษยศาสตร์และสังคมศาสตร์'      , 'ภาษาไทยเพื่อการสื่อสาร'      , 'password123'),
+('66110113400019', 'ลภัสรดา'  , 'แสงอรุณ'  , '0800011223', 'ครุศาสตร์'  , 'การประถมศึกษา'    , 'password123'),
+('66110113400020', 'วรพล' , 'เกียรติไกร'   , '0811223344', 'วิทยาศาสตร์และเทคโนโลยี'      , 'เทคโนโลยีสารสนเทศ'     , 'password123');
 
--- 4. ตาราง mapping_project_user: ข้อมูลการสมัครโครงการ
-CREATE TABLE mapping_project_user (
-    mapping_id INTEGER PRIMARY KEY AUTOINCREMENT,
-    user_id INTEGER NOT NULL,
-    project_id INTEGER NOT NULL,
+-- 4. Insert Mapping (จับคู่ 20 นักศึกษากับโครงการ)
+INSERT INTO `mapping_project_user` (`user_id`, `project_id`) VALUES
+(1, 1), (2, 2), (3, 3), (4, 4), (5, 5),
+(6, 1), (7, 2), (8, 3), (9, 4), (10, 5),
+(11, 1), (12, 2), (13, 3), (14, 4), (15, 5),
+(16, 1), (17, 2), (18, 3), (19, 4), (20, 5);
 
-    FOREIGN KEY (user_id)
-        REFERENCES &quot;user&quot;(user_id),
-
-    FOREIGN KEY (project_id)
-        REFERENCES project(project_id),
-
-    UNIQUE (user_id, project_id)
-);
-
--- 5. ตาราง work_logs: บันทึกเวลาทำงาน
-CREATE TABLE work_logs (
-    work_logs_id INTEGER PRIMARY KEY AUTOINCREMENT,
-    mapping_id INTEGER NOT NULL,
-    work_logs_date TEXT NOT NULL,
-    work_logs_timein TEXT NOT NULL,
-    work_logs_timeout TEXT NOT NULL,
-    work_logs_detail TEXT,
-    work_logs_status TEXT DEFAULT 'pending'
-        CHECK (
-            work_logs_status IS NULL
-            OR LENGTH(work_logs_status) &lt;= 50
-        ),
-
-    FOREIGN KEY (mapping_id)
-        REFERENCES mapping_project_user(mapping_id)
-);
-</sql><current_tab id="0"/></tab_sql></sqlb_project>
+-- 5. Insert Work Logs (บันทึกเวลาทำงานตัวอย่าง)
+INSERT INTO `work_logs` (`mapping_id`, `work_logs_date`, `work_logs_timein`, `work_logs_timeout`, `work_logs_detail`, `work_logs_status`) VALUES
+(1, '2026-10-01', '08:30', '16:30', 'ช่วยเตรียมเอกสารงานวิจัย     '      , 'approved'),
+(1, '2026-10-02', '09:00', '17:00', 'คีย์ข้อมูลลงฐานข้อมูลระบบ'      , 'pending'),
+(2, '2026-10-01', '08:00', '16:00', 'เขียนโค้ดหน้าเว็บส่วนสมัครโครงการ'        , 'approved'),
+(3, '2026-10-02', '10:00', '15:00', 'จัดทำสื่อการเรียนรู้ออนไลน์'      , 'approved'),
+(4, '2026-10-03', '08:30', '16:30', 'จัดหมวดหมู่หนังสือในห้องสมุด'      , 'pending'),
+(5, '2026-10-01', '09:00', '17:00', 'ช่วยงานเอกสารธุรการสำนักงาน'       , 'approved'),
+(6, '2026-10-02', '08:30', '16:30', 'ตรวจสอบระบบฐานข้อมูล'     , 'pending'),
+(7, '2026-10-01', '09:00', '16:00', 'วิเคราะห์ข้อมูลการตลาดดิจิทัล'       , 'approved'),
+(8, '2026-10-03', '08:00', '16:00', 'จัดทำบัญชีรายรับ-รายจ่ายโครงการ'        , 'pending'),
+(9, '2026-10-02', '08:30', '16:30', 'ช่วยดูแลและคัดกรองเอกสารสุขภาพ'        , 'approved'),
+(10, '2026-10-01', '09:00', '17:00', 'ทดสอบระบบเครือข่ายภายใน'      , 'approved'),
+(11, '2026-10-04', '08:30', '16:30', 'จัดทำแบบสอบถามงานวิจัย'      , 'pending'),
+(12, '2026-10-02', '09:00', '16:00', 'ช่วยจัดกิจกรรมบอร์ดเกมเสริมพัฒนาการ'         , 'approved'),
+(13, '2026-10-03', '08:00', '17:00', 'ออกแบบกราฟิกประชาสัมพันธ์โครงการ'        , 'approved'),
+(14, '2026-10-01', '08:30', '16:30', 'บันทึกสถิติผู้ใช้บริการหอสมุด'      , 'approved'),
+(15, '2026-10-02', '09:00', '16:00', 'จัดการเอกสารประชุมคณะกรรมการ'       , 'pending'),
+(16, '2026-10-03', '08:30', '16:30', 'เขียนสคริปต์ระบบหลังบ้าน'     , 'approved'),
+(17, '2026-10-01', '09:00', '17:00', 'เตรียมวัตถุดิบและจัดสถานที่อบรม'       , 'approved'),
+(18, '2026-10-04', '08:00', '16:00', 'พิสูจน์อักษรบทความวิชาการ'      , 'pending'),
+(19, '2026-10-02', '08:30', '16:30', 'ผลิตสื่อการสอนสำหรับเด็กประถม'       , 'approved'),
+(20, '2026-10-03', '09:00', '17:00', 'ดูแลระบบเซิร์ฟเวอร์และซัพพอร์ตผู้ใช้งาน'         , 'approved');</sql><current_tab id="0"/></tab_sql></sqlb_project>
