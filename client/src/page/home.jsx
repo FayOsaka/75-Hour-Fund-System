@@ -1,4 +1,4 @@
-import React from "react";
+import { Link } from "react-router-dom";
 import logoSDU from '../assets/logoSDU.jpg';
 
 export default function ScholarshipPage() {
@@ -89,9 +89,9 @@ export default function ScholarshipPage() {
             ชั่วโมง)
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <button className="px-8 py-3 font-semibold text-white bg-blue-700 rounded-full shadow-md hover:bg-blue-800 transition">
+            <Link to="/application" className="px-8 py-3 font-semibold text-white bg-blue-700 rounded-full shadow-md hover:bg-blue-800 transition">
               สมัครเข้าร่วมโครงการ
-            </button>
+            </Link>
             <button className="px-8 py-3 font-semibold text-blue-700 bg-white border border-blue-200 rounded-full shadow-sm hover:bg-blue-50 transition">
               ดูรายละเอียดโครงการ
             </button>
