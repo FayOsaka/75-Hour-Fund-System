@@ -5,8 +5,15 @@ import hour from "../assets/hour.jpg";
 export default function ScholarshipPage() {
   return (
     <div className="min-h-screen bg-gray-50 font-sans text-gray-800">
+      {/* เพิ่ม Style เพื่อให้การคลิกเลื่อนหน้าเว็บเป็นแบบนุ่มนวล (Smooth Scrolling) */}
+      <style>{`
+        html {
+          scroll-behavior: smooth;
+        }
+      `}</style>
+
       {/* *********************************************************************
-                                    Navbar (ส่วนหัว)
+                                  Navbar (ส่วนหัว)
       *************************************************************************/}
       <header className="w-full flex flex-col font-sans">
         {/* 1. Top Banner (แถบประกาศด้านบน) */}
@@ -36,13 +43,10 @@ export default function ScholarshipPage() {
         <nav className="flex items-center justify-between px-6 lg:px-12 py-4 bg-white border-b border-gray-100 shadow-sm">
           {/* โลโก้และชื่อหน่วยงาน (ด้านซ้าย) */}
           <div className="flex items-center gap-4">
-            {/* ใส่รูปภาพโลโก้ตรงนี้ */}
             <img
               src={logoSDU}
               alt="SDU Logo"
               className="h-10 w-auto object-contain"
-              // หากยังไม่มีไฟล์รูป สามารถใช้ div จำลองแทนได้ชั่วคราว:
-              // <div className="h-10 w-10 text-blue-500 font-serif italic text-2xl font-bold flex items-center justify-center">SDU</div>
             />
             <div className="flex flex-col">
               <span className="font-bold text-gray-900 text-base md:text-lg">
@@ -54,22 +58,22 @@ export default function ScholarshipPage() {
 
           {/* เมนูนำทางแบบกรอบมน (ด้านขวา) */}
           <div className="hidden md:flex items-center gap-8 px-8 py-2.5 border border-gray-200 rounded-full text-sm font-medium text-gray-600 shadow-sm">
-            <a href="#" className="hover:text-blue-600 transition">
+            <a href="#section-overview" className="hover:text-blue-600 transition">
               โครงงาน
             </a>
-            <a href="#" className="hover:text-blue-600 transition">
+            <a href="#section-background" className="hover:text-blue-600 transition">
               ที่มา
             </a>
-            <a href="#" className="hover:text-blue-600 transition">
+            <a href="#section-criteria" className="hover:text-blue-600 transition">
               เกณฑ์&สัญญา
             </a>
-            <a href="#" className="hover:text-blue-600 transition">
+            <a href="#section-directive" className="hover:text-blue-600 transition">
               วิธีปฏิบัติ
             </a>
-            <a href="#" className="hover:text-blue-600 transition">
+            <a href="#section-steps" className="hover:text-blue-600 transition">
               ขั้นตอน
             </a>
-            <a href="#" className="hover:text-blue-600 transition">
+            <a href="#section-contact" className="hover:text-blue-600 transition">
               ติดต่อ
             </a>
           </div>
@@ -177,210 +181,213 @@ export default function ScholarshipPage() {
                             Main Content (รายละเอียดโครงการ)
       *************************************************************************/}
       <main className="max-w-6xl mx-auto px-6 py-12 space-y-12">
-        {/* หัวข้อ section */}
-        <div className="flex flex-col items-start font-sans">
-          {/* ป้ายกำกับ (Badge) */}
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 mb-4 bg-[#def2fb] text-[#5cb5e5] rounded-full text-sm font-medium">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-4 w-4"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth={2}
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"
-              />
-            </svg>
-            รายละเอียดโครงการฉบับสมบูรณ์
-          </div>
-
-          {/* หัวข้อหลัก */}
-          <h2 className="text-3xl md:text-4xl lg:text-[40px] font-bold text-[#141b2d] tracking-tight mb-3">
-            โครงการสวนดุสิตเสริมโอกาส (75 ชั่วโมง)
-          </h2>
-
-          {/* ข้อความอธิบาย */}
-          <p className="text-gray-500 text-base md:text-lg leading-relaxed max-w-4xl">
-            ทุนการศึกษาเพื่อการทำงาน (Work-Study Program) พัฒนาประสบการณ์วิชาชีพ
-            สร้างรายได้แบ่งเบาภาระครอบครัว
-          </p>
-        </div>
-
-        {/* Grid Card รายละเอียด */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 font-sans">
-          {/* Card ซ้าย: โครงงานนี้คืออะไร? */}
-          <div className="lg:col-span-2 bg-white p-8 rounded-2xl shadow-sm border border-gray-100 flex flex-col">
-            {/* Top Badges */}
-            <div className="flex flex-col sm:flex-row justify-between sm:items-center gap-4 mb-6">
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-[#f0f7ff] text-[#5cb5e5] rounded-full text-sm font-medium w-fit">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-4 w-4"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                  />
-                </svg>
-                หัวข้อที่ 1 : ภาพรวมและคำจำกัดความ
-              </div>
-              <div className="px-4 py-1.5 bg-gray-100 text-gray-500 rounded-full text-xs font-mono font-medium tracking-wide w-fit">
-                PROJECT CODE: SDU-75H
-              </div>
-            </div>
-
-            {/* Title & Description */}
-            <h3 className="text-2xl md:text-3xl font-bold mb-4 text-[#141b2d] tracking-tight">
-              โครงงานนี้คืออะไร?
-            </h3>
-            <p className="text-gray-600 leading-relaxed mb-8 text-base md:text-lg">
-              โครงการทุนการศึกษาเพื่อการทำงาน (Work-Study Program)
-              ของมหาวิทยาลัยสวนดุสิต
-              เปิดโอกาสให้นักศึกษาได้พัฒนาทักษะวิชาชีพควบคู่กับการเรียน
-              โดยเน้นการฝึกปฏิบัติงานจริงในหน่วยงาน สถาบัน สำนัก
-              และศูนย์การศึกษาต่างๆ ภายใต้การกำกับดูแลของมหาวิทยาลัยสวนดุสิต
-              ทำให้นักศึกษามีทักษะความพร้อมก่อนก้าวเข้าสู่ตลาดแรงงานจริงในอนาคต
-            </p>
-
-            <hr className="border-gray-100 mb-8" />
-
-            {/* 3 Sub-cards */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-auto">
-              {/* Sub-card 1 */}
-              <div className="bg-[#f8fafc] border border-gray-100 p-5 rounded-xl">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="w-6 h-6 text-[#5cb5e5] mb-3"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={1.5}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                  />
-                </svg>
-                <div className="font-bold text-[#141b2d] text-sm mb-1">
-                  ประสบการณ์จริง
-                </div>
-                <div className="text-xs text-gray-500">
-                  ปฏิบัติงานในหน่วยงานมหาลัย
-                </div>
-              </div>
-
-              {/* Sub-card 2 */}
-              <div className="bg-[#f8fafc] border border-gray-100 p-5 rounded-xl">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="w-6 h-6 text-[#5cb5e5] mb-3"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={1.5}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"
-                  />
-                </svg>
-                <div className="font-bold text-[#141b2d] text-sm mb-1">
-                  รายได้มั่นคง
-                </div>
-                <div className="text-xs text-gray-500">
-                  3,000 บ./เดือน ตลอด 12 เดือน
-                </div>
-              </div>
-
-              {/* Sub-card 3 */}
-              <div className="bg-[#f8fafc] border border-gray-100 p-5 rounded-xl">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="w-6 h-6 text-[#5cb5e5] mb-3"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={1.5}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-                  />
-                </svg>
-                <div className="font-bold text-[#141b2d] text-sm mb-1">
-                  เวลาที่ยืดหยุ่น
-                </div>
-                <div className="text-xs text-gray-500">
-                  จัดตารางงานตามเวลาว่างจากการเรียน
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Card ขวา: อัตราค่าตอบแทนหลัก */}
-          <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 flex flex-col">
-            <div className="flex justify-between items-center mb-8">
-              <span className="text-gray-500 text-sm font-medium">
-                อัตราค่าตอบแทนหลัก
-              </span>
+        
+        {/* หัวข้อ section: โครงงาน */}
+        <div id="section-overview" className="scroll-mt-12">
+          <div className="flex flex-col items-start font-sans">
+            {/* ป้ายกำกับ (Badge) */}
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 mb-4 bg-[#def2fb] text-[#5cb5e5] rounded-full text-sm font-medium">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="w-5 h-5 text-[#5cb5e5]"
+                className="h-4 w-4"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
-                strokeWidth={1.5}
+                strokeWidth={2}
               >
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                  d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"
                 />
               </svg>
+              รายละเอียดโครงการฉบับสมบูรณ์
             </div>
 
-            <div className="mb-8">
-              <div className="text-5xl font-bold text-[#141b2d] tracking-tight mb-3">
-                3,000 ฿
+            {/* หัวข้อหลัก */}
+            <h2 className="text-3xl md:text-4xl lg:text-[40px] font-bold text-[#141b2d] tracking-tight mb-3">
+              โครงการสวนดุสิตเสริมโอกาส (75 ชั่วโมง)
+            </h2>
+
+            {/* ข้อความอธิบาย */}
+            <p className="text-gray-500 text-base md:text-lg leading-relaxed max-w-4xl">
+              ทุนการศึกษาเพื่อการทำงาน (Work-Study Program) พัฒนาประสบการณ์วิชาชีพ
+              สร้างรายได้แบ่งเบาภาระครอบครัว
+            </p>
+          </div>
+
+          {/* Grid Card รายละเอียด */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 font-sans mt-8">
+            {/* Card ซ้าย: โครงงานนี้คืออะไร? */}
+            <div className="lg:col-span-2 bg-white p-8 rounded-2xl shadow-sm border border-gray-100 flex flex-col">
+              {/* Top Badges */}
+              <div className="flex flex-col sm:flex-row justify-between sm:items-center gap-4 mb-6">
+                <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-[#f0f7ff] text-[#5cb5e5] rounded-full text-sm font-medium w-fit">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-4 w-4"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
+                  </svg>
+                  หัวข้อที่ 1 : ภาพรวมและคำจำกัดความ
+                </div>
+                <div className="px-4 py-1.5 bg-gray-100 text-gray-500 rounded-full text-xs font-mono font-medium tracking-wide w-fit">
+                  PROJECT CODE: SDU-75H
+                </div>
               </div>
-              <div className="text-sm font-medium text-[#5cb5e5]">
-                ต่อเดือน (ปฏิบัติงานครบ 75 ชม.)
+
+              {/* Title & Description */}
+              <h3 className="text-2xl md:text-3xl font-bold mb-4 text-[#141b2d] tracking-tight">
+                โครงงานนี้คืออะไร?
+              </h3>
+              <p className="text-gray-600 leading-relaxed mb-8 text-base md:text-lg">
+                โครงการทุนการศึกษาเพื่อการทำงาน (Work-Study Program)
+                ของมหาวิทยาลัยสวนดุสิต
+                เปิดโอกาสให้นักศึกษาได้พัฒนาทักษะวิชาชีพควบคู่กับการเรียน
+                โดยเน้นการฝึกปฏิบัติงานจริงในหน่วยงาน สถาบัน สำนัก
+                และศูนย์การศึกษาต่างๆ ภายใต้การกำกับดูแลของมหาวิทยาลัยสวนดุสิต
+                ทำให้นักศึกษามีทักษะความพร้อมก่อนก้าวเข้าสู่ตลาดแรงงานจริงในอนาคต
+              </p>
+
+              <hr className="border-gray-100 mb-8" />
+
+              {/* 3 Sub-cards */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-auto">
+                {/* Sub-card 1 */}
+                <div className="bg-[#f8fafc] border border-gray-100 p-5 rounded-xl">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="w-6 h-6 text-[#5cb5e5] mb-3"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={1.5}
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                    />
+                  </svg>
+                  <div className="font-bold text-[#141b2d] text-sm mb-1">
+                    ประสบการณ์จริง
+                  </div>
+                  <div className="text-xs text-gray-500">
+                    ปฏิบัติงานในหน่วยงานมหาลัย
+                  </div>
+                </div>
+
+                {/* Sub-card 2 */}
+                <div className="bg-[#f8fafc] border border-gray-100 p-5 rounded-xl">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="w-6 h-6 text-[#5cb5e5] mb-3"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={1.5}
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"
+                    />
+                  </svg>
+                  <div className="font-bold text-[#141b2d] text-sm mb-1">
+                    รายได้มั่นคง
+                  </div>
+                  <div className="text-xs text-gray-500">
+                    3,000 บ./เดือน ตลอด 12 เดือน
+                  </div>
+                </div>
+
+                {/* Sub-card 3 */}
+                <div className="bg-[#f8fafc] border border-gray-100 p-5 rounded-xl">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="w-6 h-6 text-[#5cb5e5] mb-3"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={1.5}
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
+                  </svg>
+                  <div className="font-bold text-[#141b2d] text-sm mb-1">
+                    เวลาที่ยืดหยุ่น
+                  </div>
+                  <div className="text-xs text-gray-500">
+                    จัดตารางงานตามเวลาว่างจากการเรียน
+                  </div>
+                </div>
               </div>
             </div>
 
-            <hr className="border-gray-100 mb-8" />
+            {/* Card ขวา: อัตราค่าตอบแทนหลัก */}
+            <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 flex flex-col">
+              <div className="flex justify-between items-center mb-8">
+                <span className="text-gray-500 text-sm font-medium">
+                  อัตราค่าตอบแทนหลัก
+                </span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="w-5 h-5 text-[#5cb5e5]"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={1.5}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
+                </svg>
+              </div>
 
-            <ul className="text-sm w-full space-y-5 text-gray-500 mt-auto">
-              <li className="flex justify-between items-center">
-                <span>เกณฑ์ขั้นต่ำคำนวณราย ชม.</span>
-                <span className="font-bold text-gray-800">40 ฿ / ชั่วโมง</span>
-              </li>
-              <li className="flex justify-between items-center">
-                <span>ระยะเวลาการรับทุน</span>
-                <span className="font-bold text-gray-800">12 เดือน / ปี</span>
-              </li>
-              <li className="flex justify-between items-center">
-                <span>รวมยอดทุนต่อปีสูงสุด</span>
-                <span className="font-bold text-[#5cb5e5]">36,000 บาท</span>
-              </li>
-            </ul>
+              <div className="mb-8">
+                <div className="text-5xl font-bold text-[#141b2d] tracking-tight mb-3">
+                  3,000 ฿
+                </div>
+                <div className="text-sm font-medium text-[#5cb5e5]">
+                  ต่อเดือน (ปฏิบัติงานครบ 75 ชม.)
+                </div>
+              </div>
+
+              <hr className="border-gray-100 mb-8" />
+
+              <ul className="text-sm w-full space-y-5 text-gray-500 mt-auto">
+                <li className="flex justify-between items-center">
+                  <span>เกณฑ์ขั้นต่ำคำนวณราย ชม.</span>
+                  <span className="font-bold text-gray-800">40 ฿ / ชั่วโมง</span>
+                </li>
+                <li className="flex justify-between items-center">
+                  <span>ระยะเวลาการรับทุน</span>
+                  <span className="font-bold text-gray-800">12 เดือน / ปี</span>
+                </li>
+                <li className="flex justify-between items-center">
+                  <span>รวมยอดทุนต่อปีสูงสุด</span>
+                  <span className="font-bold text-[#5cb5e5]">36,000 บาท</span>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
 
-        {/* 4. Section เจตนารมณ์ (ข้อความ + รูปภาพ) */}
-        <div className="bg-white p-8 md:p-10 rounded-3xl shadow-sm border border-gray-100 flex flex-col lg:flex-row gap-10 items-stretch font-sans">
+        {/* 4. Section เจตนารมณ์ (ที่มา) */}
+        <div id="section-background" className="bg-white p-8 md:p-10 rounded-3xl shadow-sm border border-gray-100 flex flex-col lg:flex-row gap-10 items-stretch font-sans scroll-mt-12">
           {/* ฝั่งซ้าย: เนื้อหา */}
           <div className="flex-1 flex flex-col">
             {/* Badge */}
@@ -437,7 +444,6 @@ export default function ScholarshipPage() {
 
           {/* ฝั่งขวา: รูปภาพ */}
           <div className="w-full lg:w-[35%] min-h-[350px] lg:min-h-full relative rounded-2xl overflow-hidden shrink-0">
-            {/* ใส่รูปภาพสถานที่จริงตรงนี้ (เช่น ../assets/campus.jpg) */}
             <img
               src={hour}
               alt="SDU Campus"
@@ -455,8 +461,8 @@ export default function ScholarshipPage() {
           </div>
         </div>
 
-        {/* 5. Section ขั้นตอนการสมัคร */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12 font-sans">
+        {/* 5. Section ขั้นตอนการสมัคร (เกณฑ์และสัญญา) */}
+        <div id="section-criteria" className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12 font-sans scroll-mt-12">
           {/* ฝั่งซ้าย: เกณฑ์คุณสมบัติผู้มีสิทธิ์ยื่นขอทุน */}
           <div className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 flex flex-col h-full">
             {/* Badge */}
@@ -652,7 +658,7 @@ export default function ScholarshipPage() {
         </div>
 
         {/* 6. Section ระเบียบการปฎิบัติ */}
-        <div className="bg-white p-8 md:p-10 rounded-3xl shadow-sm border border-gray-100 font-sans mt-12">
+        <div id="section-directive" className="bg-white p-8 md:p-10 rounded-3xl shadow-sm border border-gray-100 font-sans mt-12 scroll-mt-12">
           {/* ส่วนหัว (Header) */}
           <div className="flex flex-col sm:flex-row justify-between sm:items-center gap-4 mb-8">
             {/* Badge ซ้าย */}
@@ -976,7 +982,7 @@ export default function ScholarshipPage() {
       {/* *********************************************************************
                             ขั้นตอนการสมัครโครงการ 75 ชั่วโมง
       *************************************************************************/}
-      <div className="max-w-6xl mx-auto px-6 py-12 space-y-12">
+      <div id="section-steps" className="max-w-6xl mx-auto px-6 py-12 space-y-12 scroll-mt-8">
         {/* ป้ายกำกับ (Badge) */}
         <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-[#e1effe] text-[#1a5eb8] rounded-full text-sm font-medium mb-6">
           <svg
@@ -1078,7 +1084,7 @@ export default function ScholarshipPage() {
       {/* *********************************************************************
                             ติดต่อสอบถามข้อมูลเพิ่มเติม 75 ชั่วโมง
       *************************************************************************/}
-      <div className="bg-white max-w-6xl mx-auto px-6 py-12 space-y-12 rounded-[2rem] shadow-[0_2px_20px_rgba(0,0,0,0.02)] border border-gray-100 flex flex-col lg:flex-row gap-12 font-sans mt-12">
+      <div id="section-contact" className="bg-white max-w-6xl mx-auto px-6 py-12 space-y-12 rounded-[2rem] shadow-[0_2px_20px_rgba(0,0,0,0.02)] border border-gray-100 flex flex-col lg:flex-row gap-12 font-sans mt-12 scroll-mt-8">
         {/* ฝั่งซ้าย: ข้อมูลการติดต่อ */}
         <div className="flex-1 flex flex-col justify-center">
           {/* ป้ายกำกับ (Subtitle) */}
@@ -1232,7 +1238,7 @@ export default function ScholarshipPage() {
       </div>
 
       {/* *********************************************************************
-                                    Footer Section
+                                  Footer Section
       *************************************************************************/}
       <footer className="bg-white border-t border-gray-100 mt-16 py-10 font-sans">
         <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
