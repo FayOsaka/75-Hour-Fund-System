@@ -1,11 +1,6 @@
-<<<<<<< HEAD
-import { Link } from "react-router-dom";
-import logoSDU from '../assets/logoSDU.jpg';
-=======
 import React from "react";
 import logoSDU from "../assets/logoSDU.jpg";
 import hour from "../assets/hour.jpg";
->>>>>>> 15bc46b6a2a217a12d54b1be527732a64dbcdbc4
 
 export default function ScholarshipPage() {
   return (
@@ -114,14 +109,6 @@ export default function ScholarshipPage() {
               โครงการสวนดุสิตเสริมโอกาส (75 ชั่วโมง)
             </span>
           </p>
-<<<<<<< HEAD
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Link to="/application" className="px-8 py-3 font-semibold text-white bg-blue-700 rounded-full shadow-md hover:bg-blue-800 transition">
-              สมัครเข้าร่วมโครงการ
-            </Link>
-            <button className="px-8 py-3 font-semibold text-blue-700 bg-white border border-blue-200 rounded-full shadow-sm hover:bg-blue-50 transition">
-              ดูรายละเอียดโครงการ
-=======
 
           {/* 3. ปุ่มกด (Action Buttons) */}
           <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mb-8">
@@ -181,7 +168,6 @@ export default function ScholarshipPage() {
                   d="M9 5l7 7-7 7"
                 />
               </svg>
->>>>>>> 15bc46b6a2a217a12d54b1be527732a64dbcdbc4
             </button>
           </div>
         </div>
