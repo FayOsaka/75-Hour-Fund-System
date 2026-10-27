@@ -5,6 +5,8 @@ import "./App.css";
 import Home from "./page/home";
 import LoginPage from "./page/login";
 import ApplicationForm from "./page/ApplicationForm";
+import Dashboard from "./page/dashboard";
+import MainAdmin from "./page/main_admin";
 
 function App() {
   return (
@@ -13,6 +15,8 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/application" element={<ApplicationForm />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/admin" element={<MainAdmin />} />
       </Routes>
     </BrowserRouter>
   );
