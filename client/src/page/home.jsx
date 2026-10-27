@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import React from "react";
 import logoSDU from "../assets/logoSDU.jpg";
 import hour from "../assets/hour.jpg";
@@ -113,65 +114,12 @@ export default function ScholarshipPage() {
               โครงการสวนดุสิตเสริมโอกาส (75 ชั่วโมง)
             </span>
           </p>
-
-          {/* 3. ปุ่มกด (Action Buttons) */}
-          <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mb-8">
-            {/* ปุ่มสมัคร */}
-            <button className="flex items-center justify-center gap-2 px-8 py-4 text-base font-semibold text-white bg-gradient-to-r from-[#0d3b6f] to-[#005fb8] rounded-full shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-0.5">
+          <div className="flex flex-col sm:flex-row justify-center gap-4">
+            <Link to="/application" className="px-8 py-3 font-semibold text-white bg-blue-700 rounded-full shadow-md hover:bg-blue-800 transition">
               สมัครเข้าร่วมโครงการ
-            </button>
-
-            {/* ปุ่มเข้าสู่ระบบ */}
-            <button className="flex items-center justify-center gap-2 px-8 py-4 text-base font-semibold text-gray-700 bg-white border border-gray-100 rounded-full shadow-sm hover:bg-gray-50 transition-all">
-              เข้าสู่ระบบเพื่อกรอกลงเวลา
-            </button>
-          </div>
-
-          {/* 4. ข้อความเครดิตด้านล่าง (Footer text) */}
-          <p className="text-xs text-gray-400 font-light mb-16">
-            ขับเคลื่อนโดย กองพัฒนานักศึกษา มหาวิทยาลัยสวนดุสิต • รอบปีการศึกษา
-            2568
-          </p>
-
-          {/* 5. จุดเลื่อนสไลด์ (Pagination/Carousel Indicators) */}
-          <div className="flex items-center gap-4">
-            <button className="w-10 h-10 flex items-center justify-center bg-white rounded-full shadow-sm text-gray-500 hover:text-gray-800 transition">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-4 w-4"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M15 19l-7-7 7-7"
-                />
-              </svg>
-            </button>
-
-            <div className="flex gap-2 items-center">
-              <div className="w-6 h-2 bg-[#78b3ea] rounded-full"></div>
-              <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
-            </div>
-
-            <button className="w-10 h-10 flex items-center justify-center bg-white rounded-full shadow-sm text-gray-500 hover:text-gray-800 transition">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-4 w-4"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M9 5l7 7-7 7"
-                />
-              </svg>
+            </Link>
+            <button className="px-8 py-3 font-semibold text-blue-700 bg-white border border-blue-200 rounded-full shadow-sm hover:bg-blue-50 transition">
+              ดูรายละเอียดโครงการ
             </button>
           </div>
         </div>
